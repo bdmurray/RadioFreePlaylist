@@ -51,7 +51,7 @@ for article in soup.findAll('article'):
         #get the album art, handle different image tag issues we found parsing the content.
         for img in article.findAll('img', {"class":"album-art"}):
             if (img['src']):
-                loopImage = 'https://www.thecurrent.org/' + img['src']
+                loopImage = 'https://www.thecurrent.org' + img['src']
             elif (img['data-src']):
                 loopImage = img['data-src']
             else:
