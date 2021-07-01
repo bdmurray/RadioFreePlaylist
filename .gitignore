@@ -331,4 +331,4 @@ ASALocalRun/
 
 *.DS_Store
 
-last-id.txt
+*last-id.txt
