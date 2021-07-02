@@ -331,4 +331,8 @@ ASALocalRun/
 
 *.DS_Store
 
-*last-id.txt
+data/*
+config.py
+*_secrets.*
+*_secret.*
+*.pickle

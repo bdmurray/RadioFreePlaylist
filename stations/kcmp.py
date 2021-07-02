@@ -16,14 +16,12 @@ def parse():
     idx = 0
     lastId = helper.get_kcmp_last_id()
     loopId = None
+    songs = []
 
     #KCMP uses the article tag for their playlist
     for article in soup.findAll('article'):
         loopId = article.get('id')
-        loopTime = ''
-        loopImage = ''
-        loopTitle = ''
-        loopArtist = ''
+        loopTime = loopImage = loopTitle = loopArtist = ''
 
         #check to make sure we have an ID/valid tag.
         if (loopId is not None):
@@ -34,7 +32,8 @@ def parse():
                 helper.save_kcmp_last_id(loopId)
 
             #check if the filesystem stored id is equal to this loop, if so, stop execution as we have already parsed/sent this
-            if (lastId == loopId): 
+            #if (lastId == loopId): 
+            if (idx > 5):
                 print('exiting loop, hit previous start.')
                 break
             
@@ -60,4 +59,6 @@ def parse():
                 if (len(artist) > 0): loopArtist = artist.string.strip()
 
             #print out the contents for testing, later to be replaced with api calls to create playlist
-            print (loopId + ',' + loopTime + ',' + loopImage + ' ,' + loopArtist + ',' + loopTitle)
+            songs.append(helper.song(loopId, loopTime, loopImage, loopArtist, loopTitle))
+
+    return songs

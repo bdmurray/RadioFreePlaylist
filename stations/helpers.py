@@ -1,6 +1,14 @@
 import stations.constants as const
 import os
 
+class song: 
+    def __init__(self, id, time, image, artist, title): 
+        self.id = id 
+        self.time = time
+        self.image = image
+        self.artist = artist
+        self.title = title
+
 fileDir = os.path.dirname(os.path.realpath('__file__'))
 
 def get_kcmp_last_id():
