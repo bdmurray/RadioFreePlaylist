@@ -57,7 +57,7 @@ body = dict(
 # print(f"New playlist ID: {playlists_insert_response['id']}")
 
 request = youtube.playlists().delete(
-    id="PLwN5ZOtJi3P1PFDfZfBbhSQzjnygdTtBh"
+    id="--idhere--"
 )
 request.execute()
 
