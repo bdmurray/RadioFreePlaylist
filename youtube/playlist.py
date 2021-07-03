@@ -5,7 +5,6 @@ from googleapiclient.discovery import build
 def insert(title, description, privacy):
 
     credentials = helper.get_credentials()
-
     youtube = build(const.API_SERVICE_NAME, const.API_VERSION, credentials=credentials)
 
     body = dict(

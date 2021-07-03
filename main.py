@@ -1,14 +1,16 @@
 import stations.kcmp as kcmp
-import youtube.playlist as playlist
+import youtube.playlist as yt_playlist
+import youtube.search as yt_search
 
 def main():
     songs = kcmp.parse()
 
     #todo, figure out how to type/cast this so editor recognizes song class type, uhg, python....
     for songPlayed in songs:
-        print(songPlayed.artist)
+        yt_search.search(songPlayed.artist, songPlayed.title)
+        print(songPlayed.artist + ' ' + songPlayed.title)
 
-    # playlist.insert("Another Test", "Just a test from the function", "public")
+    # yt_playlist.insert("Another Test", "Just a test from the function", "public")
 
 
 if __name__ == "__main__":
