@@ -23,7 +23,7 @@ def insert(title, description, privacy):
     ).execute()
 
     #playlists_insert_response['id'] to get id
-    return playlists_insert_response
+    return playlists_insert_response['id']
 
 def delete(playlist_id):
     credentials = helper.get_credentials()
@@ -47,3 +47,22 @@ def list(playlist_id):
         #yt_link = f"https://youtu.be/{vid_id}"
 
     return item_ids
+
+def add_video_to_playlist(video_id, playlist_id):
+    credentials = helper.get_credentials()
+    youtube = build(const.API_SERVICE_NAME, const.API_VERSION, credentials=credentials)
+    request=youtube.playlistItems().insert(
+        part="snippet",
+        body={
+            'snippet': 
+                {
+                    'playlistId': playlist_id, 
+                    'resourceId': {
+                        'kind': 'youtube#video',
+                        'videoId': video_id
+                    },
+                    'position': 0
+                }
+        }
+    )
+    request.execute()

@@ -1,6 +1,5 @@
-from youtubesearchpython import VideosSearch
+from youtubesearchpython import VideosSearch as yt_video_search
 
 def search(artist, song):
-    videosSearch = VideosSearch(artist + ' ' + song, limit = 2)
-
-    print(videosSearch.result())
+    video_search = yt_video_search(artist + ' ' + song, limit = 1)
+    return video_search.result()['result']
