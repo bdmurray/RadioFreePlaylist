@@ -14,50 +14,51 @@ def parse():
     #song id will be used on subsequent runs to limit the loop to those already read/sent
     #file will be created if it doesn't exist
     idx = 0
-    lastId = helper.get_kcmp_last_id()
-    loopId = None
+    last_id = helper.get_kcmp_last_id()
+    loop_id = None
+    songs = []
 
     #KCMP uses the article tag for their playlist
     for article in soup.findAll('article'):
-        loopId = article.get('id')
-        loopTime = ''
-        loopImage = ''
-        loopTitle = ''
-        loopArtist = ''
+        loop_id = article.get('id')
+        loop_time = loop_image = loop_title = loop_artist = ''
 
         #check to make sure we have an ID/valid tag.
-        if (loopId is not None):
+        if (loop_id is not None):
             idx=idx+1
             #if this is the first article, grab the first article read last time and store our current id
             if (idx==1):         
                 #store the first loop id to be used as the last id processed next run        
-                helper.save_kcmp_last_id(loopId)
+                helper.save_kcmp_last_id(loop_id)
 
             #check if the filesystem stored id is equal to this loop, if so, stop execution as we have already parsed/sent this
-            if (lastId == loopId): 
+            #if (last_id == loop_id): 
+            if (idx > 5):
                 print('exiting loop, hit previous start.')
                 break
             
             #get the time the song was played
             for time in article.findAll('time'):
-                if (len(time) > 0): loopTime = time.string.strip()
+                if (len(time) > 0): loop_time = time.string.strip()
             
             #get the album art, handle different image tag issues we found parsing the content.
             for img in article.findAll('img', {"class":"album-art"}):
                 if (img['src']):
-                    loopImage = const.KCMP_ROOT + img['src']
+                    loop_image = const.KCMP_ROOT + img['src']
                 elif (img['data-src']):
-                    loopImage = img['data-src']
+                    loop_image = img['data-src']
                 else:
-                    loopImage = ''
+                    loop_image = ''
             
             #get the title of the song
             for title in article.findAll("h5", {"class":"title"}):
-                if (len(title) > 0): loopTitle = title.string.strip()
+                if (len(title) > 0): loop_title = title.string.strip()
 
             #get the artist of the song
             for artist in article.findAll("h5", {"class":"artist"}):
-                if (len(artist) > 0): loopArtist = artist.string.strip()
+                if (len(artist) > 0): loop_artist = artist.string.strip()
 
             #print out the contents for testing, later to be replaced with api calls to create playlist
-            print (loopId + ',' + loopTime + ',' + loopImage + ' ,' + loopArtist + ',' + loopTitle)
+            songs.append(helper.song(loop_id, loop_time, loop_image, loop_artist, loop_title))
+
+    return songs

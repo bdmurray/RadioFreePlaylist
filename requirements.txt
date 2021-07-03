@@ -1,1 +1,9 @@
 beautifulsoup4
+google
+google_auth_oauthlib
+google-api-python-client
+apiclient
+httplib2
+oauth2client
+uritemplate
+youtube-search-python

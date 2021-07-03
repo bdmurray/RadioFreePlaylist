@@ -8,7 +8,7 @@
             "name": "Python: Radio Free Playlists",
             "type": "python",
             "request": "launch",
-            "program": "app.py",
+            "program": "main.py",
             "console": "integratedTerminal"
         }
     ]
