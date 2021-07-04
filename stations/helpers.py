@@ -9,10 +9,10 @@ class song:
         self.artist = artist
         self.title = title
 
-file_dir = os.path.dirname(os.path.realpath('__file__'))
-
 def get_kcmp_last_id():
+    #get the id for KCMP stored in the data file
     last_id = 0
+    file_dir = os.path.dirname(os.path.realpath('__file__'))
     with open(os.path.join(file_dir, const.KCMP_DATAFILE), "r") as data_file:
         data_file.seek(0)
         id_line = data_file.read()
@@ -22,6 +22,8 @@ def get_kcmp_last_id():
     return last_id
 
 def save_kcmp_last_id(last_id):
+    #save the id for KCMP in the data file
+    file_dir = os.path.dirname(os.path.realpath('__file__'))
     with open(os.path.join(file_dir, const.KCMP_DATAFILE), "w") as data_file:
         #regardless of contents empty the file, we have stored or invalidated the id by this point
         data_file.seek(0)
