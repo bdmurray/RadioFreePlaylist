@@ -90,18 +90,17 @@ def add_video_to_playlist(video_id, playlist_id):
         e = sys.exc_info()[0]
         print( "<p>Error: %s</p>" % e )
 
-def get_playlist_id(station_name, station_description):
+def get_playlist_id(station_name, station_description, station_timezone):
     #initialize the return
     playlist_id = None
 
     #get today's date (in the time zone of the station)
-    d_naive = datetime.today()
-    timezone = pytz.timezone("America/Chicago")
-    todayCT = timezone.localize(d_naive)
+    current_date = datetime.now()
+    timezone = pytz.timezone(station_timezone) 
+    station_time = timezone.normalize(current_date.astimezone(timezone))
 
     #textual month, day and year	
-    date_long = todayCT.strftime("%B %d, %Y")
-    date_long = "July 03, 2021" #fix the docker container time zone issue later
+    date_long = station_time.strftime("%B %d, %Y")
 
     #check if we already stored a playlist id for today in the file
     file_dir = os.path.dirname(os.path.realpath('__file__'))
