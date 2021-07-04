@@ -7,7 +7,7 @@ def main():
     songs = kcmp.parse()
 
     #check for a stored playlist for today's date for this station, if one doesn't exist, create it.
-    playlist_id = yt_playlist.get_playlist_id("KCMP", "The Current 89.3")
+    playlist_id = yt_playlist.get_playlist_id("KCMP", "The Current 89.3", "America/Chicago")
     print(playlist_id)
 
     #todo, figure out how to type/cast this so editor recognizes song class type, uhg, python....
