@@ -32,8 +32,8 @@ def parse():
                 helper.save_kcmp_last_id(loop_id)
 
             #check if the filesystem stored id is equal to this loop, if so, stop execution as we have already parsed/sent this
-            #if (last_id == loop_id): 
-            if (idx > 5):
+            if (last_id == loop_id): 
+            #if (idx > 5):
                 print('exiting loop, hit previous start.')
                 break
             
