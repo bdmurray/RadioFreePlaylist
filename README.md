@@ -27,3 +27,7 @@ Initially here are my thoughts (subject to change):
 8. [ ] See where things go from there and how much time I have to putz with this
 
 If you have read all of the above and have questions / suggestions email [radiofreeplaylist@gmail.com](mailto:radiofreeplaylist@gmail.com)
+
+## Process Flow Diagram
+
+![Radio Free Playlists Process Flow Diagram](assets/RadioFreePlaylistFlow.svg)
