@@ -8,10 +8,11 @@ This is a pet project of mine to stay current. I plan to add features as it serv
 ## Roadmap
 Initially here are my thoughts (subject to change):
 
-1. [ ] Basic containerized parser, in python to force myself to try something different from my perfect C# language (prove me wrong)
-2. [ ] Integration with the YouTube API to host the playlists
-   1. [ ] Setup Channel: [Radio Free Playlist](https://www.youtube.com/channel/UCCwqY9d3WjLjtAzwfgUbl6w)
-   2. [ ] Purchase Domain and Redirect: [http://www.radiofreeplaylist.com/](http://www.radiofreeplaylist.com/)
+1. [X] Basic containerized parser, in python to force myself to try something different from my perfect C# language (prove me wrong)
+2. [X] Integration with the YouTube API to host the playlists
+   1. [X] Setup Channel: [Radio Free Playlist](https://www.youtube.com/channel/UCCwqY9d3WjLjtAzwfgUbl6w)
+   2. [X] Purchase Domain and Redirect: [http://www.radiofreeplaylist.com/](http://www.radiofreeplaylist.com/)
+   3. [ ] File for YouTube API extension, 10000 goes fast 1t 50/playlist add
 3. [ ] Deploy via GitHub Actions to Cloud
    1. [ ] Azure
    2. [ ] AWS
