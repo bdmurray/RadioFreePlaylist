@@ -31,4 +31,4 @@ If you have read all of the above and have questions / suggestions email [radiof
 
 ## Process Flow Diagram
 
-![Radio Free Playlists Process Flow Diagram](assets/RadioFreePlaylistFlow.svg)
+![Radio Free Playlists Process Flow Diagram](assets/RadioFreePlaylistFlow.png)
