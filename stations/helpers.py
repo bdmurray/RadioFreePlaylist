@@ -2,12 +2,13 @@ import os
 import stations.constants as const
 
 class song: 
-    def __init__(self, id, time, image, artist, title): 
+    def __init__(self, id, time, image, artist, title, album): 
         self.id = id 
         self.time = time
         self.image = image
         self.artist = artist
         self.title = title
+        self.album = album
 
 def get_kcmp_last_id():
     #get the id for KCMP stored in the data file
