@@ -27,6 +27,8 @@ def insert(title, description, privacy):
             body=body
         ).execute()
 
+        print("API:playlists().insert title:" + title)
+
         #playlists_insert_response['id'] to get id
         return playlists_insert_response['id']
     except: # catch *all* exceptions
@@ -40,6 +42,7 @@ def delete(playlist_id):
     request = youtube.playlists().delete(id=playlist_id)
     try:
         request.execute()
+        print("API:playlists().delete playlist_id:" + playlist_id)
     except: # catch *all* exceptions
         e = sys.exc_info()[0]
         print( "<p>Error: %s</p>" % e )
@@ -60,6 +63,7 @@ def list(playlist_id):
             item_ids.append(vid_id)
             #yt_link = f"https://youtu.be/{vid_id}"
 
+        print("API:playlistItems().list playlist_id:" + playlist_id)
         return item_ids
 
     except: # catch *all* exceptions
@@ -80,12 +84,13 @@ def add_video_to_playlist(video_id, playlist_id):
                         'kind': 'youtube#video',
                         'videoId': video_id
                     },
-                    'position': 0
+                    #'position': 0
                 }
         }
     )
     try:
         request.execute()
+        print("API:playlistItems().insert video_id:" + video_id + " playlist_id:" + playlist_id)
     except: # catch *all* exceptions
         e = sys.exc_info()[0]
         print( "<p>Error: %s</p>" % e )

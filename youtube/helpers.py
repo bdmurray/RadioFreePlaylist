@@ -22,7 +22,7 @@ def get_credentials():
         else:
             # fetching new tokens
             flow = InstalledAppFlow.from_client_secrets_file(
-                const.YT_CLIENT_SECRET, scopes=[const.YT_MANAGE_SCOPE]
+                const.YT_CLIENT_SECRET, scopes=const.YT_MANAGE_SCOPE
             )
 
             flow.run_local_server(port=8080, prompt='consent', authorization_prompt_message='')
